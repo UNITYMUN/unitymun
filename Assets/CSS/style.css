@@ -713,7 +713,7 @@ footer h5 { color: #fff; }
 }
 .student-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
     gap: 24px;
 }
 .student-card {
@@ -1025,4 +1025,115 @@ footer h5 { color: #fff; }
     font-size: 2rem;
     color: #fff;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #events .nav-pills .nav-item {
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Fix gallery tab buttons spacing on mobile */
+@media (max-width: 768px) {
+    #gallery-page .nav-pills .nav-link {
+        margin-bottom: 12px;
+        margin-right: 0 !important;
+    }
+    #gallery-page .nav-pills {
+        flex-direction: column !important;
+        align-items: center;
+    }
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px; /* spacing between items */
+}
+
+.countdown-timer div {
+  min-width: 70px; /* so numbers don’t squash */
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .countdown-timer {
+    gap: 10px;
+  }
+  .countdown-timer div {
+    min-width: 60px;
+  }
+}
+
+
+/* Reel-sized vertical video: 9:16 aspect, centered, responsive */
+#who-we-are iframe {
+  display: block;
+  width: 100%;
+  max-width: 360px;       /* phone-sized reel preview */
+  aspect-ratio: 9 / 16;   /* 1080x1920 ratio */
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+}
+
+/* Scale up on larger screens while keeping 9:16 */
+@media (min-width: 576px) {
+  #who-we-are iframe { max-width: 420px; }
+}
+@media (min-width: 768px) {
+  #who-we-are iframe { max-width: 480px; }
+}
+@media (min-width: 992px) {
+  #who-we-are iframe { max-width: 540px; }
+}
+
+/* Safety: override any inline width/height attributes on the iframe */
+#who-we-are iframe[width],
+#who-we-are iframe[height] {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
+
+/* Reel-sized vertical videos (9:16), centered, responsive */
+#videos iframe {
+  display: block;
+  width: 100%;          /* fill the Bootstrap column */
+  max-width: 360px;     /* phone-like reel width; adjust if desired */
+  aspect-ratio: 9 / 16; /* 1080x1920 ratio */
+  height: auto;         /* computed from aspect-ratio */
+  margin-left: auto;    /* center inside column */
+  margin-right: auto;   /* center inside column */
+  border: 0;
+}
+
+/* Scale up smoothly at larger breakpoints (still 9:16) */
+@media (min-width: 576px) {
+  #videos iframe { max-width: 420px; }
+}
+@media (min-width: 768px) {
+  #videos iframe { max-width: 480px; }
+}
+@media (min-width: 992px) {
+  #videos iframe { max-width: 540px; }
+}
+
+/* Ensure HTML width/height attributes don't override responsive sizing */
+#videos iframe[width],
+#videos iframe[height] {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
+@media (max-width: 575.98px) {
+  #videos .col-lg-6 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
